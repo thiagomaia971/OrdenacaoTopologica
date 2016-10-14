@@ -162,5 +162,21 @@ public class Lista<T> implements ILista<T> {
 
 		return null;
 	}
+	
+	@Override
+	public String toString(){
+		No<T> aux = this.header;
+		String mensagem = aux.getElement().toString();
+		
+		aux = aux.getNext();
+		
+		while(aux != null){
+			mensagem +=   " " + aux.getElement().toString();
+			aux = aux.getNext();
+		}
+		
+		return mensagem;
+		
+	}
 
 }

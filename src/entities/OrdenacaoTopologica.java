@@ -25,4 +25,11 @@ public class OrdenacaoTopologica {
 		
 	}
 	
+	public boolean IsUniqueOrdenacaoTopologica(){
+		
+		BuscaProfundidadeOT buscaOT = (BuscaProfundidadeOT) this.buscaProfundidade;
+		
+		return buscaOT.IsUniqueOrdenacaoTopologica();
+	}
+	
 }

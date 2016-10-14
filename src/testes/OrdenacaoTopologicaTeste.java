@@ -1,17 +1,21 @@
 package testes;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 
 import entities.Grafo;
 import entities.OrdenacaoTopologica;
 import entities.Vertice;
 import interfaces.IGrafo;
+import junit.framework.Assert;
 import lista.Lista;
 
 public class OrdenacaoTopologicaTeste {
 
 	@Test
-	public void test() throws Exception {
+	public void Dado_Um_Digrafo_6_Vertices_8_Arestas() throws Exception {
 		
 		IGrafo grafo = new Grafo(6);
 		
@@ -32,9 +36,7 @@ public class OrdenacaoTopologicaTeste {
 		
 		Lista<Vertice> listaOT = OT.Gerar();
 		
-		for (Vertice vertice : listaOT) {
-			System.out.println(vertice);
-		}
+		Assert.assertEquals("5 0 2 4 1 3", listaOT.toString());
 		
 		
 		

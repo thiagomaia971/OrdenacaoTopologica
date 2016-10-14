@@ -14,6 +14,7 @@ public class BuscaProfundidadeOT implements IBuscaProfundidade {
 	
 	private IGrafo G;
 	private Lista<Vertice> listaTopologica;
+	private boolean isUniqueOrdenacaoTopologica = true;
 	
 	private int cor[];
 	private int antecessor[];
@@ -74,6 +75,9 @@ public class BuscaProfundidadeOT implements IBuscaProfundidade {
 		cor[u] = PRETO;
 		f[u] = ++time;
 		this.listaTopologica.add(new Vertice(u), 1);
+
+		this.verificarIsUnique();
+		
 	}
 	
 	@Override
@@ -93,6 +97,23 @@ public class BuscaProfundidadeOT implements IBuscaProfundidade {
 	
 	public Lista<Vertice> ListaOrdemTopologica(){
 		return this.listaTopologica;
+	}
+	
+	public boolean IsUniqueOrdenacaoTopologica(){
+		return this.isUniqueOrdenacaoTopologica;
+	}
+	
+	private void verificarIsUnique(){
+		
+		Vertice v1 = this.listaTopologica.get(0);
+		Vertice v2 = this.listaTopologica.get(1);
+		
+		if (v1 != null && v2 != null) {
+			if (antecessor[v2.getPosicaoVertice()] != v1.getPosicaoVertice()) {
+				this.isUniqueOrdenacaoTopologica = false;
+			}
+		}
+		
 	}
 	
 }

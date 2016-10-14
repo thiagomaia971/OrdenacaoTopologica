@@ -15,4 +15,5 @@ public interface ILista<T> extends Iterable<T>{
 	public Stream<T> stream();
 	public T next();
 	public T find(T Element);
+	public String toString();
 }
